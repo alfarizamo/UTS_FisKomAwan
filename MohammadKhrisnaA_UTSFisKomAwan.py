@@ -18,7 +18,7 @@ if st.button('Data'):
     y_posisi = radius * np.sin(sudut)
     ukuran_titik = 1000 * np.random.rand(jumlah_titik) 
     warna_titik = np.random.rand(jumlah_titik) 
-    gambar, sumbu = plt.subplots(figsize=(4, 4))
+    gambar, sumbu = plt.subplots(figsize=(10, 10))
 
     # plot data/warna acak
     scatter_plot = sumbu.scatter(x_posisi, y_posisi, s=ukuran_titik, c=warna_titik, alpha=0.6, cmap='viridis')
