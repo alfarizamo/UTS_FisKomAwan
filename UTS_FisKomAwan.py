@@ -31,12 +31,12 @@ if st.button('Data'):
         ax.plot([0, x[i]], [0, y[i]], color=plt.cm.viridis(colors[i]), alpha=0.5)
 
     # Atur tampilan lingkaran dengan radius 1
-    circle = plt.Circle((0, 0), 1, color='black', fill=False)
+    circle = plt.Circle((0, 0), 1, color='red', fill=False)
     ax.add_artist(circle)
 
     # Atur batas tampilan agar lebih luas dan lingkaran terlihat jelas
-    ax.set_xlim([-1.5, 1.5])
-    ax.set_ylim([-1.5, 1.5])
+    ax.set_xlim([-1.0, 1.0])
+    ax.set_ylim([-1.0, 1.0])
     ax.set_aspect('equal', 'box')
 
     # Tambahkan grid untuk mempermudah penglihatan
