@@ -1,33 +1,34 @@
-import matplotlib.pyplot as plt
-import numpy as np
 import streamlit as st
+import numpy as np
+import matplotlib.pyplot as plt
 
-# Jumlah titik data
-num_points = 1000
+# Judul
+st.title("FISIKA KOMPUTASI AWAN")
+st.header("NAMA")
 
-# Generate data acak dalam rentang -1 hingga 1
-x = np.random.uniform(-1, 1, num_points)
-y = np.random.uniform(-1, 1, num_points)
+# Tombol untuk menghasilkan data acak
+if st.button('Data'):
+    # Buat data acak untuk plot lingkaran
+    num_points = 100
+    theta = 2 * np.pi * np.random.rand(num_points)
+    r = np.sqrt(np.random.rand(num_points))
 
-# Ukuran titik acak
-sizes = np.random.randint(10, 100, num_points)
+    x = r * np.cos(theta)
+    y = r * np.sin(theta)
 
-# Warna titik acak
-colors = np.random.rand(num_points, 3)  # RGB
+    sizes = 1000 * np.random.rand(num_points)  # Ukuran lingkaran acak
+    colors = np.random.rand(num_points)  # Warna acak
 
-# Membuat plot
-plt.scatter(x, y, s=sizes, c=colors, alpha=0.5)
+    # Plot
+    fig, ax = plt.subplots()
+    ax.scatter(x, y, s=sizes, c=colors, alpha=0.6, cmap='viridis')
 
-# Batas sumbu
-plt.xlim(-1.1, 1.1)
-plt.ylim(-1.1, 1.1)
+    # Atur tampilan lingkaran dengan radius 1
+    circle = plt.Circle((0, 0), 1, color='black', fill=False)
+    ax.add_artist(circle)
 
-# Judul dan label sumbu
-plt.title('Data Acak')
-plt.xlabel('Sumbu X')
-plt.ylabel('Sumbu Y')
+    ax.set_xlim([-1.2, 1.2])
+    ax.set_ylim([-1.2, 1.2])
+    ax.set_aspect('equal', 'box')
 
-# Tampilkan plot
-plt.show()
-
-st.pyplot(plt)
+    st.pyplot(fig)
